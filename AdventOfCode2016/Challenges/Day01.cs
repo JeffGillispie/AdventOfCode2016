@@ -15,11 +15,14 @@ namespace AdventOfCode2016.Challenges
 
             foreach (string instruction in instructions)
             {
+                // parse the direction and the distance from the instruction
                 int direction = (instruction.Substring(0,1).Equals("R")) ? 1 : -1;
                 int distance = int.Parse(instruction.Substring(1));
+                // move to the new location specified in the instruction
                 bearing.Move(direction, distance);
             }
 
+            // return the distance traveled
             return bearing.Distance.ToString();
         }
 
@@ -30,10 +33,12 @@ namespace AdventOfCode2016.Challenges
 
             foreach (string instruction in instructions)
             {
+                // parse the direction and the distance from the instruction
                 int direction = (instruction.Substring(0, 1).Equals("R")) ? 1 : -1;
                 int distance = int.Parse(instruction.Substring(1));
+                // move to the new location spevified in the instruction
                 bool isFinished = bearing.MoveAndLog(direction, distance);
-
+                // check if we have passed over a location that has been previously visited
                 if (isFinished)
                 {
                     break;
@@ -73,25 +78,32 @@ namespace AdventOfCode2016.Challenges
             {
                 get
                 {
+                    // absolute value of the sum of the vertical and horizontal position
                     return Math.Abs(this.position.x) + Math.Abs(this.position.y);
                 }
             }
 
             public void Move(int direction, int distance)
             {
+                // find the new direction based on the existing direction
                 if ((int)this.direction == 0 && direction == -1)
                 {
+                    // left turn from north to west
                     this.direction = Direction.west;
                 }
                 else if ((int)this.direction == 3 && direction == 1)
                 {
+                    // right turn from west to north
                     this.direction = Direction.north;
                 }
                 else
                 {
+                    // direction is in bounds so just add it
                     this.direction += direction;
                 }
 
+                // now that we have the new direction
+                // move the specified distance
                 switch(this.direction)
                 {
                     case Direction.north:
@@ -112,11 +124,12 @@ namespace AdventOfCode2016.Challenges
             public bool MoveAndLog(int direction, int distance)
             {
                 this.direction = ((int)this.direction == 0 && direction == -1) 
-                    ? Direction.west 
+                    ? Direction.west // turn left from north to west
                     : ((int)this.direction == 3 && direction == 1) 
-                        ? Direction.north 
-                        : this.direction + direction;
+                        ? Direction.north // turn right from west to north
+                        : this.direction + direction; // direction is in bounds
 
+                // setup
                 int count = 0;
                 int startValue = 0;
                 int endValue = 0;
@@ -124,6 +137,10 @@ namespace AdventOfCode2016.Challenges
                 bool isHorizontal = true;
                 bool isFinished = false;
 
+                // based on the new direction
+                // determine if the move is horizontal or vertical
+                // and if the move will be in the positive or negative direction
+                // then set the end value so we can loop through the intermediate positions
                 switch (this.direction)
                 {
                     case Direction.north:
@@ -147,9 +164,10 @@ namespace AdventOfCode2016.Challenges
                         endValue = this.position.x - distance;
                         break;
                 }
-
+                // set the starting value
                 startValue = (isHorizontal) ? this.position.x : this.position.y;
-
+                // iterate through the intermediate positions
+                // exit if we have arrived at a location we have already visited
                 if (isIncrement)
                 {
                     for (int i = startValue; i <= endValue; i++)
@@ -198,14 +216,18 @@ namespace AdventOfCode2016.Challenges
 
             private bool logPosition()
             {
+                // get the coordinates of our position
                 string location = String.Format("{0},{1}", this.position.x, this.position.y);
 
                 if (this.positionHistory.Contains(location))
                 {
+                    // arrived at our destination so its ok to exit
                     return true;
                 }
                 else
                 {
+                    // log the current position
+                    // not finished
                     this.positionHistory.Add(location);
                     return false;
                 }

@@ -65,6 +65,30 @@
     </Compile>
     <Compile Include="Challenges\Day01.cs" />
     <Compile Include="Challenge.cs" />
+    <Compile Include="Challenges\Day02.cs" />
+    <Compile Include="Challenges\Day03.cs" />
+    <Compile Include="Challenges\Day04.cs" />
+    <Compile Include="Challenges\Day05.cs" />
+    <Compile Include="Challenges\Day06.cs" />
+    <Compile Include="Challenges\Day07.cs" />
+    <Compile Include="Challenges\Day08.cs" />
+    <Compile Include="Challenges\Day09.cs" />
+    <Compile Include="Challenges\Day10.cs" />
+    <Compile Include="Challenges\Day11.cs" />
+    <Compile Include="Challenges\Day12.cs" />
+    <Compile Include="Challenges\Day13.cs" />
+    <Compile Include="Challenges\Day14.cs" />
+    <Compile Include="Challenges\Day15.cs" />
+    <Compile Include="Challenges\Day16.cs" />
+    <Compile Include="Challenges\Day17.cs" />
+    <Compile Include="Challenges\Day18.cs" />
+    <Compile Include="Challenges\Day19.cs" />
+    <Compile Include="Challenges\Day20.cs" />
+    <Compile Include="Challenges\Day21.cs" />
+    <Compile Include="Challenges\Day22.cs" />
+    <Compile Include="Challenges\Day23.cs" />
+    <Compile Include="Challenges\Day24.cs" />
+    <Compile Include="Challenges\Day25.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
