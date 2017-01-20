@@ -13,92 +13,40 @@ namespace AdventOfCode2016
         private FileInfo input;
         private Day day;
 
+        private Dictionary<int, Day> challengeSelector = new Dictionary<int, Day>()
+        {
+            {  1, new Challenges.Day01() },
+            {  2, new Challenges.Day02() },
+            {  3, new Challenges.Day03() },
+            {  4, new Challenges.Day04() },
+            {  5, new Challenges.Day05() },
+            {  6, new Challenges.Day06() },
+            {  7, new Challenges.Day07() },
+            {  8, new Challenges.Day08() },
+            {  9, new Challenges.Day09() },
+            { 10, new Challenges.Day10() },
+            { 11, new Challenges.Day11() },
+            { 12, new Challenges.Day12() },
+            { 13, new Challenges.Day13() },
+            { 14, new Challenges.Day14() },
+            { 15, new Challenges.Day15() },
+            { 16, new Challenges.Day16() },
+            { 17, new Challenges.Day17() },
+            { 18, new Challenges.Day18() },
+            { 19, new Challenges.Day19() },
+            { 20, new Challenges.Day20() },
+            { 21, new Challenges.Day21() },
+            { 22, new Challenges.Day22() },
+            { 23, new Challenges.Day23() },
+            { 24, new Challenges.Day24() },
+            { 25, new Challenges.Day25() }
+        };
+
         public Challenge(FileInfo instructions, FileInfo input, int dayOrdinal)
         {
             this.instructions = instructions;
             this.input = input;
-            this.day = null;
-
-            switch(dayOrdinal)
-            {
-                case 1:
-                    this.day = new Challenges.Day01();
-                    break;
-                case 2:
-                    this.day = new Challenges.Day02();
-                    break;
-                case 3:
-                    this.day = new Challenges.Day03();
-                    break;
-                case 4:
-                    this.day = new Challenges.Day04();
-                    break;
-                case 5:
-                    this.day = new Challenges.Day05();
-                    break;
-                case 6:
-                    this.day = new Challenges.Day06();
-                    break;
-                case 7:
-                    this.day = new Challenges.Day07();
-                    break;
-                case 8:
-                    this.day = new Challenges.Day08();
-                    break;
-                case 9:
-                    this.day = new Challenges.Day09();
-                    break;
-                case 10:
-                    this.day = new Challenges.Day10();
-                    break;
-                case 11:
-                    this.day = new Challenges.Day11();
-                    break;
-                case 12:
-                    this.day = new Challenges.Day12();
-                    break;
-                case 13:
-                    this.day = new Challenges.Day13();
-                    break;
-                case 14:
-                    this.day = new Challenges.Day14();
-                    break;
-                case 15:
-                    this.day = new Challenges.Day15();
-                    break;
-                case 16:
-                    this.day = new Challenges.Day16();
-                    break;
-                case 17:
-                    this.day = new Challenges.Day17();
-                    break;
-                case 18:
-                    this.day = new Challenges.Day18();
-                    break;
-                case 19:
-                    this.day = new Challenges.Day19();
-                    break;
-                case 20:
-                    this.day = new Challenges.Day20();
-                    break;
-                case 21:
-                    this.day = new Challenges.Day21();
-                    break;
-                case 22:
-                    this.day = new Challenges.Day22();
-                    break;
-                case 23:
-                    this.day = new Challenges.Day23();
-                    break;
-                case 24:
-                    this.day = new Challenges.Day24();
-                    break;
-                case 25:
-                    this.day = new Challenges.Day25();
-                    break;
-                default:
-                    break;
-            }
+            this.day = challengeSelector[dayOrdinal];            
         }
 
         public FileInfo Instructions

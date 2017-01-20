@@ -5,12 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdventOfCode2016"
         mc:Ignorable="d"
-        Title="Advent of Code 2016" Height="400" Width="525" MinHeight="350" MinWidth="525">
-    <DockPanel LastChildFill="True">
-        <GroupBox Header="Challenge" DockPanel.Dock="Top">
+        Title="Advent of Code 2016" Height="400" Width="525" MinHeight="400" MinWidth="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" MinHeight="100" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="100" MinHeight="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Challenge" Grid.Column="0" Grid.Row="0" Margin="0,5,0,0">
             <ComboBox Name="comboBoxChallenges" SelectionChanged="challengeSelectionChanged" />
         </GroupBox>
-        <Grid DockPanel.Dock="Bottom">
+        <GroupBox Header="Instructions"  Grid.Column="0" Grid.Row="1">
+            <TextBox Name="textBoxInstructions" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" />
+        </GroupBox>
+        <GridSplitter Height="10" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Top" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" ShowsPreview="True" Grid.Column="0" Grid.Row="2" >
+            <GridSplitter.Template>
+                <ControlTemplate TargetType="{x:Type GridSplitter}">
+                    <Grid>
+                        <Rectangle Fill="SteelBlue" />
+                    </Grid>
+                </ControlTemplate>
+            </GridSplitter.Template>
+        </GridSplitter>
+        <GroupBox Header="Input"  Grid.Column="0" Grid.Row="3">
+            <TextBox Name="textBoxInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  FontFamily="Courier New" />
+        </GroupBox>
+        <ProgressBar Name="progressBarMain"  Grid.Column="0" Grid.Row="4" Height="20" Margin="10" />
+        <Grid  Grid.Column="0" Grid.Row="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="5" />
@@ -35,13 +62,6 @@
             <Label Grid.Column="3" Grid.Row="2" Content="Run Time" />
             <TextBox Grid.Column="4" Grid.Row="2" Name="textBoxPart2RunTime" />
             <Button Grid.Column="6" Grid.Row="0" Grid.RowSpan="3" Content="Run" Height="30" Name="buttonRun" Click="buttonRun_Clicked" />
-        </Grid>
-        <ProgressBar Name="progressBarMain" DockPanel.Dock="Bottom" Height="20" Margin="10" />
-        <GroupBox Header="Input" DockPanel.Dock="Bottom" Height="100">
-            <TextBox Name="textBoxInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  FontFamily="Courier New" />
-        </GroupBox>        
-        <GroupBox Header="Instructions" DockPanel.Dock="Top">
-            <TextBox Name="textBoxInstructions" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" />
-        </GroupBox>
-    </DockPanel>
+        </Grid>        
+    </Grid>
 </Window>

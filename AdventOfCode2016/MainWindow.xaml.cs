@@ -21,7 +21,7 @@ namespace AdventOfCode2016
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IDisposable
     {
         private const string INSTRUCTION_FOLDER = "Instructions";
         private const string INPUT_FOLDER = "Input";
@@ -57,6 +57,11 @@ namespace AdventOfCode2016
             // setup worker
             this.worker.DoWork += worker_DoWork;
             this.worker.RunWorkerCompleted += worker_Completed;
+        }
+
+        public virtual void Dispose()
+        {
+            this.worker.Dispose();
         }
 
         private Challenge getChallengeValue(int day, FileInfo[] instructionFiles, FileInfo[] inputFiles)
