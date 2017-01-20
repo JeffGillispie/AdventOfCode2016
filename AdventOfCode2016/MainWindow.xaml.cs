@@ -123,6 +123,10 @@ namespace AdventOfCode2016
             {
                 // get the value of the selected challenge
                 Challenge challenge = (Challenge)comboBoxChallenges.SelectedValue;
+                textboxPart1Answer.Text = String.Empty;
+                textBoxPart1RunTime.Text = String.Empty;
+                textBoxPart2Answer.Text = String.Empty;
+                textBoxPart2RunTime.Text = String.Empty;
                 comboBoxChallenges.IsEnabled = false;
                 progressBarMain.IsIndeterminate = true;
                 worker.RunWorkerAsync(challenge);

@@ -38,10 +38,10 @@
         </Grid>
         <ProgressBar Name="progressBarMain" DockPanel.Dock="Bottom" Height="20" Margin="10" />
         <GroupBox Header="Input" DockPanel.Dock="Bottom" Height="100">
-            <TextBox Name="textBoxInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+            <TextBox Name="textBoxInput" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  FontFamily="Courier New" />
         </GroupBox>        
         <GroupBox Header="Instructions" DockPanel.Dock="Top">
-            <TextBox Name="textBoxInstructions" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+            <TextBox Name="textBoxInstructions" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" FontFamily="Courier New" />
         </GroupBox>
     </DockPanel>
 </Window>

@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CartesianCoordinate.cs" />
     <Compile Include="Challenges\Day01.cs" />
     <Compile Include="Challenge.cs" />
     <Compile Include="Challenges\Day02.cs" />
@@ -90,6 +91,8 @@
     <Compile Include="Challenges\Day24.cs" />
     <Compile Include="Challenges\Day25.cs" />
     <Compile Include="Day.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -134,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Instructions\InstructionsDay02.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Input\InputDay02.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
