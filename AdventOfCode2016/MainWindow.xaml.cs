@@ -147,13 +147,13 @@ namespace AdventOfCode2016
             timer.Start();
             string part1Answer = challenge.GetPart1Answer();
             timer.Stop();
-            string part1RunTime = timer.Elapsed.ToString("mm\\:ss");
+            string part1RunTime = timer.ElapsedMilliseconds.ToString("N0"); 
             // run part 2
             timer = new Stopwatch();
             timer.Start();
             string part2Answer = challenge.GetPart2Answer();
             timer.Stop();
-            string part2RunTime = timer.Elapsed.ToString("mm\\:ss");
+            string part2RunTime = timer.ElapsedMilliseconds.ToString("N0"); 
             // box the result
             KeyValuePair<string, string> part1 = new KeyValuePair<string, string>(part1Answer, part1RunTime);
             KeyValuePair<string, string> part2 = new KeyValuePair<string, string>(part2Answer, part2RunTime);

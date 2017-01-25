@@ -11,24 +11,7 @@ namespace AdventOfCode2016.Challenges
         public string Part1(string input)
         {
             string[] triangles = System.IO.File.ReadAllLines(input);
-            int validTriangles = 0;
-            // get count of possible triangles
-            foreach (string triangle in triangles)
-            {
-                string[] sides = triangle.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-                // parse the side lengths
-                int x = int.Parse(sides[0]);
-                int y = int.Parse(sides[1]);
-                int z = int.Parse(sides[2]);
-                // check if these are the sides of a valid triangle
-                if (x + y > z &&
-                    x + z > y &&
-                    y + z > x)
-                {
-                    validTriangles++;
-                }
-            }
-
+            int validTriangles = triangles.Count(t => isTriangle(parseTriangleSides(t)));
             return validTriangles.ToString();
         }
 
@@ -40,25 +23,21 @@ namespace AdventOfCode2016.Challenges
             // iterate through every third line or every triangle
             for (int i = 0; i < lines.Length; i += 3)
             {
-                int[,] triangles = new int[3, 3];
+                int[,] triangles = new int[3, 3]; // set of three triangles
                 // parse the side values of each of the three triangles 
                 for (int j = 0; j < 3; j++)
                 {
-                    string[] parts = lines[i + j].Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-                    triangles[j, 0] = int.Parse(parts[0]);
-                    triangles[j, 1] = int.Parse(parts[1]);
-                    triangles[j, 2] = int.Parse(parts[2]);
+                    Tuple<int, int, int> sideSet = parseTriangleSides(lines[i + j]);
+                    triangles[j, 0] = sideSet.Item1;
+                    triangles[j, 1] = sideSet.Item2;
+                    triangles[j, 2] = sideSet.Item3;
                 }
                 // now loop over each triangle
                 for (int j = 0; j < 3; j++)
                 {
-                    int x = triangles[0, j];
-                    int y = triangles[1, j];
-                    int z = triangles[2, j];
+                    Tuple<int, int, int> sides = new Tuple<int, int, int>(triangles[0, j], triangles[1, j], triangles[2, j]);
                     // check if the sides are a valid triangle
-                    if (x + y > z &&
-                    x + z > y &&
-                    y + z > x)
+                    if (isTriangle(sides))
                     {
                         validTriangles++;
                     }
@@ -66,6 +45,23 @@ namespace AdventOfCode2016.Challenges
             }
 
             return validTriangles.ToString();
+        }
+
+        private bool isTriangle(Tuple<int, int, int> sides)
+        {
+            return (sides.Item1 + sides.Item2 > sides.Item3 &&
+                    sides.Item1 + sides.Item3 > sides.Item2 &&
+                    sides.Item2 + sides.Item3 > sides.Item1);
+        }
+
+        private Tuple<int, int, int> parseTriangleSides(string triangle)
+        {
+            string[] sides = triangle.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            // parse the side lengths
+            int x = int.Parse(sides[0]);
+            int y = int.Parse(sides[1]);
+            int z = int.Parse(sides[2]);
+            return new Tuple<int, int, int>(x, y, z);
         }
     }
 }
