@@ -26,5 +26,12 @@ namespace AdventOfCode2016
                 return (Direction.Cardinal)((int)direction + (int)turn);
             }
         }
+
+        public static string GetHash(this string value)
+        {         
+            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] hash = md5.ComputeHash(Encoding.Default.GetBytes(value));
+            return BitConverter.ToString(hash).Replace("-", String.Empty);                        
+        }        
     }
 }
