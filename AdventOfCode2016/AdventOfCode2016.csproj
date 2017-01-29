@@ -121,6 +121,7 @@
     <Compile Include="Day.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="NestedString.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -205,6 +206,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Input\InputDay06.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Instructions\InstructionsDay07.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Input\InputDay07.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
