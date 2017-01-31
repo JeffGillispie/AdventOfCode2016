@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdventOfCode2016"
         mc:Ignorable="d"
-        Title="Advent of Code 2016" Height="400" Width="525" MinHeight="400" MinWidth="525">
+        Title="Advent of Code 2016" Height="600" Width="800" MinHeight="600" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -46,7 +46,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="Auto" MinWidth="150" />
                 <ColumnDefinition Width="10" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="100" />
@@ -54,11 +54,11 @@
                 <ColumnDefinition Width="50" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Grid.Row="0" Content="Part 1: Answer" />
-            <TextBox Grid.Column="1" Grid.Row="0" Name="textboxPart1Answer" />
+            <TextBox Grid.Column="1" Grid.Row="0" Name="textboxPart1Answer" FontFamily="Courier New" FontSize="14" />
             <Label Grid.Column="3" Grid.Row="0" Content="Run Time (ms)" />
             <TextBox Grid.Column="4" Grid.Row="0" Name="textBoxPart1RunTime" />
             <Label Grid.Column="0" Grid.Row="2" Content="Part 2: Answer" />
-            <TextBox Grid.Column="1" Grid.Row="2" Name="textBoxPart2Answer" />
+            <TextBox Grid.Column="1" Grid.Row="2" Name="textBoxPart2Answer" FontFamily="Courier New" FontSize="14" />
             <Label Grid.Column="3" Grid.Row="2" Content="Run Time (ms)" />
             <TextBox Grid.Column="4" Grid.Row="2" Name="textBoxPart2RunTime" />
             <Button Grid.Column="6" Grid.Row="0" Grid.RowSpan="3" Content="Run" Height="30" Name="buttonRun" Click="buttonRun_Clicked" />
