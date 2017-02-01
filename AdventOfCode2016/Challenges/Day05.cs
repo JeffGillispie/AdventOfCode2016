@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,16 +14,17 @@ namespace AdventOfCode2016.Challenges
             // setup
             string doorID = System.IO.File.ReadAllText(input);
             StringBuilder password = new StringBuilder();
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             int i = 0;
             // the password is 8 characters
             while (password.Length < 8)
             {
-                string hex = (doorID + i.ToString()).GetHash();                
+                string hex = (doorID + i.ToString()).GetHash(md5);                
                 // the hex value should start with 5 zeros
                 while (!hex.StartsWith("00000")) 
                 {
                     i++;
-                    hex = (doorID + i.ToString()).GetHash();                    
+                    hex = (doorID + i.ToString()).GetHash(md5);                    
                 }
                 // character found add to password
                 password.Append(hex[5]);
@@ -37,17 +39,18 @@ namespace AdventOfCode2016.Challenges
             // setup
             string doorID = System.IO.File.ReadAllText(input);            
             string[] password = new string[8];
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             int i = 0;
             int charsFound = 0;
             // the password is 8 characters
             while (charsFound < 8)
             {
-                string hex = (doorID + i.ToString()).GetHash();
+                string hex = (doorID + i.ToString()).GetHash(md5);
                 // the hex value should start with 5 zeros
                 while (!hex.StartsWith("00000"))
                 {
                     i++;
-                    hex = (doorID + i.ToString()).GetHash();
+                    hex = (doorID + i.ToString()).GetHash(md5);
                 }
                 // potential character found check the position value
                 int pos = 8; // set position to an invalid value
